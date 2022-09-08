@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Applikacja Pizza Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<form method="POST" th:action="@{/orders}" th:object="${order}">
+    <h1>Zamów skomponowaną pizzę!</h1>
+    <a th:href="@{/design}" id=""another>Skomponuj kolejną pizzę</a></br>
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">Popraw dane</span>
+    </div>
+
+    <h3>Miejsce zamówienia</h3>
+    <label for="name">Imię i nazwisko:</label>
+    <input type="text" th:field="*{name}"/>
+    </br>
+
+    <label for="street">Ulica:</label>
+    <input type="text" th:field="*{street}"/>
+    </br>
+
+    <label for="city">Miejscowość:</label>
+    <input type="text" th:field="*{city}"/>
+    </br>
+
+    <label for="state">Województwo:</label>
+    <input type="text" th:field="*{state}"/>
+    </br>
+
+    <label for="zip">Kod pocztowy:</label>
+    <input type="text" th:field="*{zip}"/>
+    </br>
+
+    <h3>Sposób zamówienia</h3>
+    <label for="ccNumber">Numer karty kredytowej:</label>
+    <input type="text" th:field="*{ccNumber}"/>
+    </br>
+
+    <label for="ccExpiration">Data ważności:</label>
+    <input type="text" th:field="*{ccExpiration}"/>
+    </br>
+
+    <label for="ccCVV">Kod CVV:</label>
+    <input type="text" th:field="*{ccCVV}"/>
+    </br>
+
+    <input type="submit" value="Zamawiam"/>
+
+</form>
+</body>
+</html>
