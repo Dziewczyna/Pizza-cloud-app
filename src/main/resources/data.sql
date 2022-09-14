@@ -1,0 +1,25 @@
+delete from Pizza_Order_Pizzas;
+delete from Pizza_Ingredients;
+delete from Pizza;
+delete from Pizza_Order;
+delete from Ingredient;
+
+insert into Ingredient (id, name, type) values ('1', 'szynka', 'PROTEIN');
+insert into Ingredient (id, name, type) values ('2', 'boczek wędzony', 'PROTEIN');
+insert into Ingredient (id, name, type) values ('3', 'kurczak', 'PROTEIN');
+insert into Ingredient (id, name, type) values ('4', 'salami', 'PROTEIN');
+insert into Ingredient (id, name, type) values ('5', 'kiełbasa', 'PROTEIN');
+insert into Ingredient (id, name, type) values ('6', 'pomidor', 'VEGETABLE');
+insert into Ingredient (id, name, type) values ('7', 'papryka', 'VEGETABLE');
+insert into Ingredient (id, name, type) values ('8', 'rukola', 'VEGETABLE');
+insert into Ingredient (id, name, type) values ('9', 'kukurydza', 'VEGETABLE');
+insert into Ingredient (id, name, type) values ('10', 'pikantna papryczka', 'VEGETABLE');
+insert into Ingredient (id, name, type) values ('11', 'łosoś', 'FISH');
+insert into Ingredient (id, name, type) values ('12', 'tuńczyk', 'FISH');
+insert into Ingredient (id, name, type) values ('13', 'ananas', 'FRUIT');
+insert into Ingredient (id, name, type) values ('14', 'gruszka', 'FRUIT');
+insert into Ingredient (id, name, type) values ('15', 'mozarella', 'CHEESE');
+insert into Ingredient (id, name, type) values ('16', 'cheddar', 'CHEESE');
+insert into Ingredient (id, name, type) values ('17', 'cheddar', 'CHEESE');
+insert into Ingredient (id, name, type) values ('18', 'ketchup', 'SAUCE');
+insert into Ingredient (id, name, type) values ('19', 'sos czosnkowy', 'SAUCE');
