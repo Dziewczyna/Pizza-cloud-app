@@ -7,8 +7,12 @@
 </head>
 <body>
 <h1>Skomponuj własną pizzę!</h1>
-<form method="POST" th:object="${design}">
+<form method="POST" th:object="${pizza}">
     <div class="grid">
+
+        <span class="validationError"
+              th:if="${#fields.hasErrors('ingredients')}"
+              th:errors="*{ingredients}">Błąd składnika</span>
 
         <div class="ingredient-group" id="proteins">
             <h3>Wybierz mięso:</h3>
@@ -56,6 +60,9 @@
     
     <h3>Jak nazwiesz swoją kompozycję?</h3>
     <input type="text" th:field="*{name}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}">Błąd nazwy taco</span>
     <br>
     <button>Zamów</button>
 

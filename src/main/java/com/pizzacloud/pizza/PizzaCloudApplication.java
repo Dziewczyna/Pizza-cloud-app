@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PizzaCloudApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PizzaCloudApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(PizzaCloudApplication.class, args);
+  }
 }

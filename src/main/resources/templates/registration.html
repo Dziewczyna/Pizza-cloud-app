@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza CLoud application</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<h1>Registration</h1>
+
+<form id="registerForm" method="POST" th:action="@{/register}">
+
+    <label for="username">Username:</label>
+    <input name="username" type="text"/>
+    </br>
+
+    <label for="password">Password:</label>
+    <input name="password" type="password"/>
+    </br>
+
+    <label for="confirm">Confirm password:</label>
+    <input name="confirm" type="password"/>
+    </br>
+
+    <label for="fullname">Full name:</label>
+    <input name="fullname" type="text"/>
+    </br>
+
+    <label for="street">Street:</label>
+    <input name="street" type="text"/>
+    </br>
+
+    <label for="city">City:</label>
+    <input name="city" type="text"/>
+    </br>
+
+    <label for="state">State:</label>
+    <input name="state" type="text"/>
+    </br>
+
+    <label for="zip">Zip:</label>
+    <input name="street" type="zip"/>
+    </br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" name="phone"/>
+    </br>
+    </br>
+
+    <input type="submit" value="Register"/>
+
+</form>
+</body>
+</html>
