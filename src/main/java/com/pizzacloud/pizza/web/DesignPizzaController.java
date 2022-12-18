@@ -1,8 +1,8 @@
 package com.pizzacloud.pizza.web;
 
 import com.pizzacloud.pizza.Ingredient;
-import com.pizzacloud.pizza.Order;
 import com.pizzacloud.pizza.Pizza;
+import com.pizzacloud.pizza.PizzaOrder;
 import com.pizzacloud.pizza.data.IngredientRepository;
 import com.pizzacloud.pizza.data.PizzaRepository;
 import jakarta.validation.Valid;
@@ -50,8 +50,8 @@ public class DesignPizzaController {
   }
 
   @ModelAttribute(name = "order")
-  public Order order() {
-    return new Order();
+  public PizzaOrder order() {
+    return new PizzaOrder();
   }
 
   @ModelAttribute(name = "pizza")
@@ -61,14 +61,14 @@ public class DesignPizzaController {
 
   @PostMapping
   public String processDesign(
-      @Valid Pizza pizzaDesign, Errors errors, @ModelAttribute Order order) {
+      @Valid Pizza pizzaDesign, Errors errors, @ModelAttribute PizzaOrder order) {
     log.info("Przetwarzanie projektu pizzy: " + pizzaDesign);
     if (errors.hasErrors()) {
       return "design";
     }
 
     Pizza saved = pizzaRepository.save(pizzaDesign);
-    order.addDesign(saved);
+    order.addPizza(saved);
 
     return "redirect:/orders/current";
   }

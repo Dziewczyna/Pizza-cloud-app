@@ -1,9 +1,11 @@
 package com.pizzacloud.pizza.web;
 
-import com.pizzacloud.pizza.Order;
+import com.pizzacloud.pizza.PizzaOrder;
+import com.pizzacloud.pizza.User;
 import com.pizzacloud.pizza.data.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -28,15 +30,21 @@ public class OrderController {
 
   @GetMapping("/current")
   public String orderForm(Model model) {
-    model.addAttribute("order", new Order());
+    model.addAttribute("order", new PizzaOrder());
     return "orderForm";
   }
 
   @PostMapping
-  public String processOrder(@Validated Order order, Errors errors, SessionStatus sessionStatus) {
+  public String processOrder(
+      @Validated PizzaOrder order,
+      Errors errors,
+      SessionStatus sessionStatus,
+      @AuthenticationPrincipal User user) {
     if (errors.hasErrors()) {
       return "orderForm";
     }
+    order.setUser(user);
+
     orderRepository.save(order);
     sessionStatus.setComplete();
     log.info("Zamówienie zostało złożone: " + order);

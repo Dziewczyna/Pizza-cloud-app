@@ -5,7 +5,13 @@
     <title>Applikacja Pizza Cloud</title>
 </head>
 <body>
-<h1>Witaj w Pizza Cloud</h1>
+<h1>Welcome in Pizza Cloud!</h1>
 <img th:src="@{/images/welcome.png}"/>
+
+<form method="POST" th:action="@{/logout}" id="logoutForm">
+    <input type="submit" value="Logout"/>
+</form>
+
+<a th:href="@{/design}" id="design">Design a taco</a>
 </body>
 </html>
