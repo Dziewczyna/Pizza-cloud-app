@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
-public class JdbcIngredientRepository implements IngredientRepository {
+public abstract class JdbcIngredientRepository implements IngredientRepository {
 
   private final JdbcTemplate jdbc;
 
@@ -27,11 +27,11 @@ public class JdbcIngredientRepository implements IngredientRepository {
         rs.getString("id"), rs.getString("name"), Ingredient.Type.valueOf(rs.getString("type")));
   }
 
-  @Override
-  public Ingredient findById(String id) {
-    final String SELECT_INGREDIENT_BY_ID = "SELECT id, name, type from Ingredient WHERE id=?";
-    return jdbc.queryForObject(SELECT_INGREDIENT_BY_ID, this::mapRowToIngredient, id);
-  }
+//  @Override
+//  public Ingredient findById(String id) {
+//    final String SELECT_INGREDIENT_BY_ID = "SELECT id, name, type from Ingredient WHERE id=?";
+//    return jdbc.queryForObject(SELECT_INGREDIENT_BY_ID, this::mapRowToIngredient, id);
+//  }
 
   @Override
   public Ingredient save(Ingredient ingredient) {

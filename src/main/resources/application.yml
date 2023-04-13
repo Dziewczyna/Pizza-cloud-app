@@ -1,0 +1,7 @@
+pizza:
+  orders:
+    pageSize: 10
+
+logging:
+  level:
+    pizza: WARN

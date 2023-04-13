@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Repository
-public class JdbcPizzaRepository implements PizzaRepository {
+public abstract class JdbcPizzaRepository implements PizzaRepository {
   private final JdbcTemplate jdbc;
 
   public JdbcPizzaRepository(JdbcTemplate jdbc) {
@@ -54,5 +54,10 @@ public class JdbcPizzaRepository implements PizzaRepository {
         "INSERT INTO Pizza_Ingredients (pizza, ingredient) values (?,?)";
 
     jdbc.update(INSERT_INTO_PIZZA_INGREDIENTS, pizzaId, ingredient.getId());
+  }
+
+  @Override
+  public <S extends Pizza> Iterable<S> saveAll(Iterable<S> entities) {
+    return null;
   }
 }
